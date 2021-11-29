@@ -108,15 +108,18 @@ input:focus {
   border-color: #ff3217;
 }
 
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
 .modal {
   position: fixed;
   z-index: 100;
-  background: white;
-  border-radius: 10px;
   width: 80%;
   top: 30vh;
   left: 10%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   display: none;
 }
 
@@ -188,7 +191,13 @@ input:focus {
 }
 
 #entry-text {
-  margin: 2rem;
+  width: 40rem;
+  margin: 2rem auto;
+  max-width: 80%;
+  padding: 1rem;
+}
+
+#entry-text p {
   font-size: 1.5rem;
   text-align: center;
 }
@@ -223,28 +232,10 @@ input:focus {
   flex-direction: column;
 }
 
-main {
-  box-shadow: 1px 1px 5px #c3bdbd;
-  border-radius: 5px;
-  max-width: 30rem !important;
-  margin: 0 auto;
-  padding: 0.1rem 0;
-  margin-top: 3rem;
-}
-
 @media (min-width: 768px) {
   .modal {
     width: 40rem;
     left: calc(50% - 20rem);
-  }
-  main {
-    width: 90%;
-  }
-}
-
-@media (max-width: 768px) {
-  main {
-    width: 90%;
   }
 }
 
