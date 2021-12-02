@@ -95,4 +95,14 @@
 
 // console.log(taxAdjustedPrices);
 
-// start
+// start transforming data with map()
+
+const prices = [10.99, 5.99, 3.99, 6.99];
+const tax = 0.19;
+
+const taxAdjustedPrices = prices.map((price, idx, prices) => {
+  const priceObj = { index: idx, taxAdjustedPrices: price * (1 + tax) };
+  return priceObj;
+});
+
+// console.log(prices, taxAdjustedPrices);
