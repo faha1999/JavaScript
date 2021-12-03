@@ -175,3 +175,7 @@
 // console.log(persons, copiedPersons);
 
 // started Array destructuring
+const nameData = ['John', 'Dou', 'Mr', 30];
+
+const [firstName, lastName, ...otherInformation] = nameData;
+console.log(firstName, lastName, otherInformation);
