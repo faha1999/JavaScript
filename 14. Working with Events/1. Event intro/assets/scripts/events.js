@@ -31,7 +31,36 @@
 
 // // the event object
 
-const buttons = document.querySelectorAll('button');
+// const buttons = document.querySelectorAll('button');
+
+// const buttonClickHandler = (event) => {
+//   // event.target.disabled = true;
+//   console.log(event);
+// };
+
+// const anotherButtonClickHandler = () => {
+//   console.log('Button was clicked!');
+// };
+
+// const boundFn = buttonClickHandler.bind(this);
+
+// button.addEventListener('click', buttonClickHandler);
+
+// setTimeout(() => {
+//   button.removeEventListener('click', buttonClickHandler);
+// });
+
+// buttons.forEach((btn) => {
+//   btn.addEventListener('mouseenter', buttonClickHandler);
+// });
+
+// window.addEventListener('scroll', (event) => {
+//   console.log(event);
+// });
+
+// // start preventDefault()
+
+const buttons = document.querySelector('button');
 
 const buttonClickHandler = (event) => {
   // event.target.disabled = true;
@@ -44,16 +73,23 @@ const anotherButtonClickHandler = () => {
 
 const boundFn = buttonClickHandler.bind(this);
 
-// button.addEventListener('click', buttonClickHandler);
+const form = document.querySelector('form');
 
-// setTimeout(() => {
-//   button.removeEventListener('click', buttonClickHandler);
-// });
-
-buttons.forEach((btn) => {
-  btn.addEventListener('mouseenter', buttonClickHandler);
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  console.log(event);
 });
 
-window.addEventListener('scroll', (event) => {
+const div = document.querySelector('div');
+
+div.addEventListener('mouseenter', (event) => {
+  console.log('Clicked DIV');
+  console.log(event);
+});
+
+buttons.addEventListener('mouseenter', (event) => {
+  event.stopPropagation();
+  // event.stopImmediatePropagation();
+  console.log('Clicked BUTTON');
   console.log(event);
 });
