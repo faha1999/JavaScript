@@ -93,3 +93,19 @@ buttons.addEventListener('mouseenter', (event) => {
   console.log('Clicked BUTTON');
   console.log(event);
 });
+
+const listItem = document.querySelectorAll('li');
+
+// listItem.forEach((listItem) => {
+//   listItem.addEventListener('click', (event) => {
+//     event.target.classList.toggle('highlight');
+//   });
+// });
+
+const list = document.querySelector('ul');
+
+list.addEventListener('click', (event) => {
+  // console.log(event.currentTarget);
+  // event.target.classList.toggle('highlight');
+  event.target.closest('li').classList.toggle('highlight');
+});
