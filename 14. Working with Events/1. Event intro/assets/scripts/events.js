@@ -87,11 +87,12 @@ div.addEventListener('mouseenter', (event) => {
   console.log(event);
 });
 
-buttons.addEventListener('mouseenter', (event) => {
+buttons.addEventListener('click', function (event) {
   event.stopPropagation();
   // event.stopImmediatePropagation();
   console.log('Clicked BUTTON');
   console.log(event);
+  console.log(this);
 });
 
 const listItem = document.querySelectorAll('li');
@@ -108,4 +109,6 @@ list.addEventListener('click', (event) => {
   // console.log(event.currentTarget);
   // event.target.classList.toggle('highlight');
   event.target.closest('li').classList.toggle('highlight');
+  // form.submit();
+  buttons.click();
 });
