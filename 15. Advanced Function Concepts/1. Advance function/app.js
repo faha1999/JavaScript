@@ -70,7 +70,7 @@ username = 'Dou';
 
 greetUser();
 
-////Start recursion
+// //Start recursion
 
 // function powerOf(x, n) {
 //   let result = 1;
@@ -92,3 +92,44 @@ function powerOf(x, n) {
 }
 
 console.log(powerOf(2, 3)); // 2*2*2
+
+const myself = {
+  name: 'John',
+  friends: [
+    {
+      name: 'Dou',
+      friends: [
+        {
+          name: 'David',
+          friends: [
+            {
+              name: 'Heirs'
+            },
+            {
+              name: 'Amalia'
+            }
+          ]
+        }
+      ]
+    },
+    {
+      name: 'julia'
+    }
+  ]
+};
+
+function printFriendNames(person) {
+  const collectedNames = [];
+
+  if (!person.friends) {
+    return [];
+  }
+
+  for (const friend of person.friends) {
+    collectedNames.push(friend.name);
+    collectedNames.push(...printFriendNames(friend));
+  }
+  return collectedNames;
+}
+
+console.log(printFriendNames(myself));
