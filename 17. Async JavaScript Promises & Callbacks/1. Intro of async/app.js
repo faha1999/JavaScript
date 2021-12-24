@@ -7,7 +7,9 @@ const getPosition = (opts) => {
       (success) => {
         resolve(success);
       },
-      (error) => {},
+      (error) => {
+        reject(error);
+      },
       opts
     );
   });
@@ -30,6 +32,25 @@ function trackUserHandler() {
       positionData = posData;
       return setTimer(2000);
     })
+
+    // error handling with catch method
+    .catch((err) => {
+      console.log(err);
+      return 'allow location';
+    })
+
+    // // another method OF error handling
+    // getPosition()
+    // .then(
+    //   (posData) => {
+    //     positionData = posData;
+    //     return setTimer(2000);
+    //   },
+    //   (err) => {
+    //     console.log(err);
+    //   }
+    // )
+
     .then((data) => {
       console.log(data, positionData);
     });
