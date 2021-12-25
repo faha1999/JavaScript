@@ -25,39 +25,41 @@ const setTimer = (duration) => {
   return promise;
 };
 
-function trackUserHandler() {
-  let positionData;
-  getPosition()
-    .then((posData) => {
-      positionData = posData;
-      return setTimer(2000);
-    })
+async function trackUserHandler() {
+  //let positionData;
+  const posData = await getPosition();
+  const timerData = await setTimer(2000);
+  console.log(timerData, posData);
+  // .then((posData) => {
+  //   positionData = posData;
+  //   return setTimer(2000);
+  // })
 
-    // error handling with catch method
-    .catch((err) => {
-      console.log(err);
-      return 'allow location';
-    })
+  // // error handling with catch method
+  // .catch((err) => {
+  //   console.log(err);
+  //   return 'allow location';
+  // })
 
-    // // another method OF error handling
-    // getPosition()
-    // .then(
-    //   (posData) => {
-    //     positionData = posData;
-    //     return setTimer(2000);
-    //   },
-    //   (err) => {
-    //     console.log(err);
-    //   }
-    // )
+  // // another method OF error handling
+  // getPosition()
+  // .then(
+  //   (posData) => {
+  //     positionData = posData;
+  //     return setTimer(2000);
+  //   },
+  //   (err) => {
+  //     console.log(err);
+  //   }
+  // )
 
-    .then((data) => {
-      console.log(data, positionData);
-    });
-  setTimer(1000).then(() => {
-    console.log('Timer done!');
-  });
-  console.log('Getting position ...........');
+  // .then((data) => {
+  //   console.log(data, positionData);
+  // });
+  // setTimer(1000).then(() => {
+  //   console.log('Timer done!');
+  // });
+  // console.log('Getting position ...........');
 }
 
 button.addEventListener('click', trackUserHandler);
