@@ -34,9 +34,13 @@ function sendHttpRequest(method, url, data) {
 
   // // start fetch API
   return fetch(url, {
+    // method: method,
+    // body: JSON.stringify(data),
+    // headers: { 'content-type': 'application/json' }
+
+    // fd
     method: method,
-    body: JSON.stringify(data),
-    headers: { 'content-type': 'application/json' }
+    body: data
   })
     .then((response) => {
       if (response.status >= 200 && response.status < 300) {
@@ -81,7 +85,12 @@ async function createPost(title, content) {
     userId: userId
   };
 
-  sendHttpRequest('POST', 'https://jsonplaceholder.typicode.com/posts', post);
+  const fd = new FormData(form);
+  // fd.append('title', title);
+  // fd.append('body', content);
+  fd.append('userId', userId);
+
+  sendHttpRequest('POST', 'https://jsonplaceholder.typicode.com/posts', fd);
 }
 
 fetchButton.addEventListener('click', fetchPosts);
